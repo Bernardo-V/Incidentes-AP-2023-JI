@@ -7,10 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-//@NoArgsConstructor
-//@AllArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
-//@ToString
 @Table(name="cliente")
 public class Cliente {
     @Id
@@ -27,78 +26,6 @@ public class Cliente {
     @OneToMany(mappedBy = "id_contrato", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Contrato> contratosl = new ArrayList<>();
 
-
-    // Constructor vacío
-    public Cliente() {
-    }
-
-    // Constructor con todos los atributos
-    public Cliente(int id_cliente, String nombre, String razon_social, String cuit, String eMail, String telefono, List<Contrato> contratos) {
-        this.id_cliente = id_cliente;
-        this.nombre = nombre;
-        this.razon_social = razon_social;
-        this.cuit = cuit;
-        this.eMail = eMail;
-        this.telefono = telefono;
-        this.contratos = contratos;
-    }
-
-    // Getters y Setters
-    public int getId_cliente() {
-        return id_cliente;
-    }
-
-    public void setId_cliente(int id_cliente) {
-        this.id_cliente = id_cliente;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getRazon_social() {
-        return razon_social;
-    }
-
-    public void setRazon_social(String razon_social) {
-        this.razon_social = razon_social;
-    }
-
-    public String getCuit() {
-        return cuit;
-    }
-
-    public void setCuit(String cuit) {
-        this.cuit = cuit;
-    }
-
-    public String getEmail() {
-        return eMail;
-    }
-
-    public void setEmail(String eMail) {
-        this.eMail = eMail;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public List<Contrato> getContratos() {
-        return contratos;
-    }
-
-    public void setContratos(List<Contrato> contratos) {
-        this.contratos = contratos;
-    }
 
     // Método para buscar un cliente por CUIT
     public static Cliente buscarPorCuit(List<Cliente> clientes, String cuit) {
