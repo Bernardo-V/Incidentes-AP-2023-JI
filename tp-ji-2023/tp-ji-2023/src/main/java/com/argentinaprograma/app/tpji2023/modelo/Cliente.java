@@ -21,11 +21,15 @@ public class Cliente {
     private String cuit;
     private String eMail;
     private String telefono;
-    private List<Contrato> contratos;
-
-    @OneToMany(mappedBy = "id_contrato", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Contrato> contratosl = new ArrayList<>();
-
+    
+    
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Contrato> contratos = new ArrayList<>();
+    //un cliente puede tener múltiples contratos y cada contrato pertenece a un único cliente
+// modificado: @OneToMany(mappedBy = "id_contrato", cascade = CascadeType.ALL, orphanRemoval = true)
+ //private List<Contrato> contratosl = new ArrayList<>();
+    //indica que la relación está mapeada por el campo "id_contrato" en la clase Contrato
+    
 
     // Método para buscar un cliente por CUIT
     public static Cliente buscarPorCuit(List<Cliente> clientes, String cuit) {
