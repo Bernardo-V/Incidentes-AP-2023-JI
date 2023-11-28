@@ -3,15 +3,11 @@ package com.argentinaprograma.app.tpji2023.modelo;
 import jakarta.persistence.*;
 import lombok.*;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+@Entity
 public class Especialidad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
