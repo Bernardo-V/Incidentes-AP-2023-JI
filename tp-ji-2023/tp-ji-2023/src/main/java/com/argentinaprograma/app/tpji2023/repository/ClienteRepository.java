@@ -33,4 +33,9 @@ public class ClienteRepository {
     public Cliente findById(int idCliente) {
         return entityManager.find(Cliente.class, idCliente);
     }
+
+    public Cliente guardar(Cliente clienteExistente) {
+        return entityManager.merge(clienteExistente);
+    }
+
 }

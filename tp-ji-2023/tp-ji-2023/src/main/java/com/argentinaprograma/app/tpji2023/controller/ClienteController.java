@@ -51,17 +51,23 @@ public class ClienteController {
 
 	    @PutMapping("/{id}")
 	    public ResponseEntity<Cliente> actualizarCliente(@PathVariable int id, @RequestBody Cliente cliente) {
-	        Cliente clienteActualizado = clienteService.actualizarCliente(id, cliente);
-	        if (clienteActualizado != null) {
-	            return new ResponseEntity<>(clienteActualizado, HttpStatus.OK);
+	        Cliente clienteExistente = clienteService.getClienteById(id);
+	        if (clienteExistente != null) {
+	            // Actualizar los campos del cliente existente con los valores proporcionados
+	            clienteExistente.setNombre(cliente.getNombre());
+	            clienteExistente.setEmail(cliente.getEmail());
+	            // ... Actualiza otros campos según sea necesario
+
+	            // Guardar el cliente actualizado en la base de datos
+	            final Cliente clienteActualizado = clienteService.guardarCliente(clienteExistente);
+
+	            return ResponseEntity.ok(clienteActualizado);
 	        } else {
 	            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	        }
-	        
-	        final Cliente clienteActualizado = clienteService.guardarCliente(clienteExistente);
-	        return ResponseEntity.ok(clienteActualizado);
 	    }
-	    
+
+	  
 
 	    @DeleteMapping("/{id}")
 	    public ResponseEntity<Void> eliminarCliente(@PathVariable int id) {

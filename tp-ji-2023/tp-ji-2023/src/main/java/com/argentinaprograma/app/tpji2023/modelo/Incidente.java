@@ -13,10 +13,8 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Entity
-//@NoArgsConstructor
-//@AllArgsConstructor
+@AllArgsConstructor
 @Data
-//@ToString
 @Table(name="incidente")
 public class Incidente {
     @Id
@@ -31,14 +29,13 @@ public class Incidente {
     private Date fecha_fin_estimada;
     private Duration duracion_estimada; // Duración estimada como objeto Duration
     private String estado;
-    private List<Problema> problemas;
 
     @ManyToOne
     @JoinColumn(name = "id_contrato")
     private Contrato contrato;
 
-    @OneToMany(mappedBy = "id_problema", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Problema> problema = new ArrayList<>();
+    @OneToMany(mappedBy = "incidente", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Problema> problemas = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "id_tecnico")
@@ -46,59 +43,11 @@ public class Incidente {
 
     @ManyToOne
     @JoinColumn(name = "id_detalle_servicio")
-    private DetalleServicio detalleservicio;
+    private DetalleServicio detalleServicio ;
 
     // Constructor vacío
     public Incidente() {
         this.fecha_creacion = new Date();
-    }
-
-    // Constructor con todos los atributos
-    public Incidente(int id_incidente, int id_contrato, int id_tipo_de_problema, int id_tecnico, Date fecha_creacion, Date fecha_inicio, Date fecha_fin_estimada, Duration duracion_estimada, String estado, List<Problema> problemas) {
-        this.id_incidente = id_incidente;
-        this.id_contrato = id_contrato;
-        this.id_tipo_de_problema = id_tipo_de_problema;
-        this.id_tecnico = id_tecnico;
-        this.fecha_creacion = new Date();
-        this.fecha_inicio = fecha_inicio;
-        this.fecha_fin_estimada = fecha_fin_estimada;
-        this.duracion_estimada = duracion_estimada;
-        this.estado = estado;
-        this.problemas = problemas;
-    }
-
-    // Getters y Setters
-
-    public int getId_incidente() {
-        return id_incidente;
-    }
-
-    public int getId_contrato() {
-        return id_contrato;
-    }
-
-    public int getId_tipo_de_problema() {
-        return id_tipo_de_problema;
-    }
-
-    public int getId_tecnico() {
-        return id_tecnico;
-    }
-
-    public Date getFecha_creacion() {
-        return fecha_creacion;
-    }
-
-    public Date getFecha_inicio() {
-        return fecha_inicio;
-    }
-
-    public Date getFecha_fin_estimada() {
-        return fecha_fin_estimada;
-    }
-
-    public String getEstado() {
-        return estado;
     }
 
     public void setId_incidente(int id_incidente) {
@@ -133,18 +82,10 @@ public class Incidente {
         this.estado = estado;
     }
 
-
-    public Duration getDuracion_estimada() {
-        return duracion_estimada;
-    }
-
     public void setDuracion_estimada(Duration duracion_estimada) {
         this.duracion_estimada = duracion_estimada;
     }
 
-    public List<Problema> getProblemas() {
-        return problemas;
-    }
 
     public void setProblemas(List<Problema> problemas) {
         this.problemas = problemas;

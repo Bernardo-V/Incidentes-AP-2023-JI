@@ -100,5 +100,10 @@ public class Cliente {
         contrato.setCliente(null);
     }
 
+	public Cliente orElseThrow(Object object) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
 

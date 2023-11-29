@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,9 +50,16 @@ public class ClienteService {
 
 
 	public Cliente actualizarCliente(int id, Cliente cliente) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+        Cliente clienteExistente = clienteRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Cliente no encontrado con el id: " + id));
+
+        // Actualizar el clienteExistente con los valores proporcionados en cliente
+        BeanUtils.copyProperties(cliente, clienteExistente, "id");
+
+        // Guardar el cliente actualizado en la base de datos
+        return clienteRepository.guardar(clienteExistente);
+    }
+
 
 	public Object crearCliente(int id) {
 		// TODO Auto-generated method stub
@@ -67,5 +75,16 @@ public class ClienteService {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public List<Cliente> obtenerTodosLosClientes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Cliente guardarCliente(Cliente clienteExistente) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }
