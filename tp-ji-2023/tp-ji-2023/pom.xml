@@ -12,16 +12,23 @@
 	<groupId>com.argentinaprograma.app</groupId>
 	<artifactId>tp-ji-2023</artifactId>
 	<version>1.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>tp-ji-2023</name>
 	<description>tp argentina programa ji 2023</description>
 	<properties>
 		<java.version>17</java.version>
-	</properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>17</maven.compiler.source>   
+        <maven.compiler.target>17</maven.compiler.target>
+        <exec.mainClass>principal.Principal</exec.mainClass>
+    </properties>
 	<dependencies>
+		<!-- Dependencia de Spring Data JPA -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+		 <!-- Dependencia de Spring Web (si planeas exponer servicios REST) -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -33,25 +40,34 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-    <artifactId>mysql-connector-java</artifactId>
-    <version>8.0.23</version>
-		</dependency>
+		<!-- MySQL Connector -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.22</version>
+        </dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+		 <!-- Dependencias de JUnit para pruebas (incluido en spring-boot-starter-test) -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
+		</dependency>	
+         <!-- Dependencia de H2 Database (para pruebas o desarrollo local) -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
         </dependency>
+          <!-- proporciona una forma de convertir entre XML y objetos Java   -->
+         <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>       
+        </dependency>       
 	</dependencies>
 
 	<build>
