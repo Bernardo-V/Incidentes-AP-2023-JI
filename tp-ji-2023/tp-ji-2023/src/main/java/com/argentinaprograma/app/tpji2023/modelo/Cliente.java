@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.argentinaprograma.app.tpji2023.modelo.Contrato;
 
 @Entity
 @NoArgsConstructor
@@ -70,7 +71,7 @@ public class Cliente {
 
     public Contrato seleccionarContrato(int idContrato) {
         for (Contrato contrato : this.contratos) {
-            if (contrato.getId_contrato() == idContrato) {
+            if (contrato.getIdContrato() == idContrato) {
 
                 return contrato;
             }
@@ -104,6 +105,7 @@ public class Cliente {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 }
 
