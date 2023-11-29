@@ -14,12 +14,22 @@ import java.util.List;
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
-    private int id_cliente;
+    @Column(name="id_cliente")
+    private int idCliente;
+
+    @Column(name = "nombre")
     private String nombre;
-    private String razon_social;
+
+    @Column(name = "razon_social")
+    private String razonSocial;
+
+    @Column(name = "cuit")
     private String cuit;
-    private String eMail;
+
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "telefono")
     private String telefono;
     
     
@@ -32,19 +42,19 @@ public class Cliente {
     
 
     // Método para buscar un cliente por CUIT
-    public static Cliente buscarPorCuit(List<Cliente> clientes, String cuit) {
+    public static Cliente buscarPorCuit(List<Cliente> clientes, String cuit) throws ClienteNoEncontradoException {
         for (Cliente cliente : clientes) {
             if (cliente.getCuit().equals(cuit)) {
                 return cliente;
             }
         }
-        return null; // o puedes lanzar una excepción si prefieres
+        throw new ClienteNoEncontradoException("Cliente con CUIT " + cuit + " no encontrado");
     }
 
     // Método para buscar un cliente por razón social
     public static Cliente buscarPorRazonSocial(List<Cliente> clientes, String razonSocial) {
         for (Cliente cliente : clientes) {
-            if (cliente.getRazon_social().equalsIgnoreCase(razonSocial)) {
+            if (cliente.getRazonSocial().equalsIgnoreCase(razonSocial)) {
                 return cliente;
             }
         }
@@ -68,6 +78,27 @@ public class Cliente {
         return null; // o puedes lanzar una excepción si no se encuentra el contrato
     }
 
+ // Clase de excepción específica para cuando no se encuentra un cliente
+    public static class ClienteNoEncontradoException extends Exception {
+        public ClienteNoEncontradoException(String mensaje) {
+            super(mensaje);
+        }
+    }
+    
+    public void setContratos(List<Contrato> contratos) {
+        this.contratos = contratos;
+    }
+
+    // Métodos para agregar y eliminar contratos
+    public void agregarContrato(Contrato contrato) {
+        contratos.add(contrato);
+        contrato.setCliente(this);
+    }
+
+    public void eliminarContrato(Contrato contrato) {
+        contratos.remove(contrato);
+        contrato.setCliente(null);
+    }
 
 }
 

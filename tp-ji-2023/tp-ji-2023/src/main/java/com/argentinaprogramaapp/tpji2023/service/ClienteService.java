@@ -1,19 +1,20 @@
 package com.argentinaprogramaapp.tpji2023.service;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.argentinaprograma.app.tpji2023.modelo.Cliente;
 import com.argentinaprograma.app.tpji2023.modelo.Contrato;
-//import com.argentinaprograma.app.tpji2023.repositorio.ClienteRepository;
-//import com.argentinaprograma.app.tpji2023.repositorio.ContratoRepository;
-//averiguando sobre la recomendacion de una clase repositorio que haga las crud porque ya teniamos en cliente controlador las crud
+import com.argentinaprograma.app.tpji2023.repository.ClienteRepository;
+import com.argentinaprograma.app.tpji2023.repository.ContratoRepository;
 
 public class ClienteService {
 	
-    /*@Autowired
+    @Autowired
     private ClienteRepository clienteRepository;
 
     @Autowired
@@ -32,9 +33,10 @@ public class ClienteService {
     }
 
     public List<Contrato> getContratosCliente(int idCliente) {
-        Cliente cliente = clienteRepository.findById(idCliente).orElse(null);
-        if (cliente != null) {
-            return cliente.getContratosl();
+        Optional<Cliente> optionalCliente = Optional.ofNullable(clienteRepository.findById(idCliente));
+
+        if (optionalCliente.isPresent()) {
+            return optionalCliente.get().getContratos();
         } else {
             return Collections.emptyList();
         }
@@ -65,5 +67,5 @@ public class ClienteService {
 		// TODO Auto-generated method stub
 		
 	}
-*/
+
 }

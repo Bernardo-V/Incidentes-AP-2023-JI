@@ -2,16 +2,18 @@ package com.argentinaprograma.app.tpji2023.modelo;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+
+@Data
 @Entity
+@Table(name="especialidad")
 public class Especialidad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name="idEspecialidad")
     private int id_especialidad;
     private String nombre;
     private String descripcion;
@@ -28,57 +30,9 @@ public class Especialidad {
     // Constructor vacío
     public Especialidad() {
         tecnicos = new ArrayList<>();
+        detallesServicio = new ArrayList<>();
     }
 
-    // Constructor con todos los atributos
-    public Especialidad(int id_especialidad, String nombre, String descripcion, List<DetalleServicio> detallesServicio) {
-        this.id_especialidad = id_especialidad;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.detallesServicio = detallesServicio;
-        tecnicos = new ArrayList<>();
-    }
-
-    // Getters y Setters
-    public int getId_especialidad() {
-        return id_especialidad;
-    }
-
-    public void setId_especialidad(int id_especialidad) {
-        this.id_especialidad = id_especialidad;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public List<DetalleServicio> getDetallesServicio() {
-        return detallesServicio;
-    }
-
-    public void setDetallesServicio(List<DetalleServicio> detallesServicio) {
-        this.detallesServicio = detallesServicio;
-    }
-
-    public List<Tecnico> getTecnicos() {
-        return tecnicos;
-    }
-
-    public void setTecnicos(List<Tecnico> tecnicos) {
-        this.tecnicos = tecnicos;
-    }
 
     // Método que agrega un técnico a la lista de técnicos asociados a esta especialidad
     public void agregarTecnico(Tecnico tecnico) {

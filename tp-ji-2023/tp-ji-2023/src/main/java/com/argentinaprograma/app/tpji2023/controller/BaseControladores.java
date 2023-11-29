@@ -11,6 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/common")
 
 public interface BaseControladores {
-	//no lo toma la clase clientecontrolador ver por q
+	//no lo toma la clase clientecontrolador ver por q. PROBANDO SI LAS ANOTACIONES PUEDEN USARLAS COMO INTERFAZ
 
 }

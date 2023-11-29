@@ -1,4 +1,6 @@
-/*package com.argentinaprograma.app.tpji2023.controlador;
+package com.argentinaprograma.app.tpji2023.controller;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,12 +21,18 @@ import com.argentinaprogramaapp.tpji2023.service.ClienteService;
 @RestController
 @RequestMapping("/clientes")
 
-
-public class ClienteControlador implements BaseControladores {
+public class ClienteController {
 
 	 @Autowired
 	    private ClienteService clienteService;
 
+	    // Obtener todos los clientes
+	    @GetMapping
+	    public List<Cliente> obtenerTodosLosClientes() {
+	        return clienteService.obtenerTodosLosClientes();
+	    }
+	 
+	  // Obtener un cliente por ID
 	    @GetMapping("/{id}")
 	    public ResponseEntity<Cliente> getCliente(@PathVariable int id) {
 	        Cliente cliente = clienteService.getClienteById(id);
@@ -49,7 +57,11 @@ public class ClienteControlador implements BaseControladores {
 	        } else {
 	            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	        }
+	        
+	        final Cliente clienteActualizado = clienteService.guardarCliente(clienteExistente);
+	        return ResponseEntity.ok(clienteActualizado);
 	    }
+	    
 
 	    @DeleteMapping("/{id}")
 	    public ResponseEntity<Void> eliminarCliente(@PathVariable int id) {
@@ -57,8 +69,8 @@ public class ClienteControlador implements BaseControladores {
 	        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	    }
   }
-*/
-package com.argentinaprograma.app.tpji2023.controller;
+
+
 
 
 	
