@@ -1,6 +1,7 @@
 package com.argentinaprograma.app.tpji2023.modelo;
 
 import jakarta.persistence.*;
+import com.argentinaprograma.app.tpji2023.modelo.Contrato;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -15,14 +16,14 @@ import java.util.List;
 public class Servicio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
-    private int id_servicio;
+    @Column(name="id_servicio")
+    private int idServicio;
     private String nombre;
     private String descripcion;
     private List<DetalleServicio> detallesServicio; // Lista de detalles de servicio
 
-    @OneToMany(mappedBy = "id_contrato", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Contrato> contratosl = new ArrayList<>();
+    @OneToMany(mappedBy = "idContrato", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Contrato> contratos = new ArrayList<>();
 
     @OneToMany(mappedBy = "id_detalle_servicio", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DetalleServicio> detalleservicio = new ArrayList<>();
@@ -33,7 +34,7 @@ public class Servicio {
 
     // Constructor con todos los atributos
     public Servicio(int id_servicio, String nombre, String descripcion, List<DetalleServicio> detallesServicio) {
-        this.id_servicio = id_servicio;
+        this.idServicio = id_servicio;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.detallesServicio = detallesServicio;
@@ -41,11 +42,11 @@ public class Servicio {
 
     // Getters y Setters
     public int getId_servicio() {
-        return id_servicio;
+        return idServicio;
     }
 
     public void setId_servicio(int id_servicio) {
-        this.id_servicio = id_servicio;
+        this.idServicio = id_servicio;
     }
 
     public String getNombre() {
