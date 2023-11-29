@@ -16,8 +16,8 @@ public class TecnicoService {
         Date fechaLimite = calcularFechaLimite(dias);
 
         return listaIncidentes.stream()
-                .filter(incidente -> incidente.getFecha_fin_estimada() != null &&
-                        incidente.getFecha_fin_estimada().after(fechaLimite) &&
+                .filter(incidente -> incidente.getFechaFinEstimada() != null &&
+                        incidente.getFechaFinEstimada().after(fechaLimite) &&
                         incidente.calcularEstado().equalsIgnoreCase("resuelto") &&
                         incidente.getTecnico() != null &&
                         tieneEspecialidad(incidente.getTecnico(), idEspecialidad))
@@ -31,7 +31,7 @@ public class TecnicoService {
 
     private boolean tieneEspecialidad(Tecnico tecnico, int idEspecialidad) {
         return tecnico.getEspecialidades().stream()
-                .anyMatch(especialidad -> especialidad.getId_especialidad() == idEspecialidad);
+                .anyMatch(especialidad -> especialidad.getIdEspecialidad() == idEspecialidad);
     }
 
     private Date calcularFechaLimite(int dias) {

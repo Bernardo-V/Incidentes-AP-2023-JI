@@ -13,8 +13,8 @@ import java.util.Set;
 public class Especialidad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="idEspecialidad")
-    private int id_especialidad;
+    @Column(name="id_especialidad")
+    private int idEspecialidad;
     private String nombre;
     private String descripcion;
     private List<DetalleServicio> detallesServicio; // Lista de detalles de servicio que la especialidad puede atender

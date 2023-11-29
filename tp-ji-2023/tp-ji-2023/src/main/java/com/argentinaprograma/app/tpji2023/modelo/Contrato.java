@@ -18,10 +18,10 @@ public class Contrato {
     @Column(name="id_contrato")
     private int idContrato;
 
-    private int id_cliente; // Un único clinte asociado con el contrato
-    private int id_servicio; // Un único servicio asociado con el contrato
-    private Date fecha_inicio;
-    private Date fecha_fin;
+    private int idCliente; // Un único clinte asociado con el contrato
+    private int idServicio; // Un único servicio asociado con el contrato
+    private Date fechaInicio;
+    private Date fechaFin;
     private String estado;
 
     @ManyToOne
@@ -35,13 +35,10 @@ public class Contrato {
     @OneToMany(mappedBy = "contrato", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Incidente> incidentes = new ArrayList<>();
 
-    // Constructor vacío
-
-
     // Método que recibe un objeto Contrato y devuelve el Servicio asociado
     public int obtenerServicioDelContrato(Contrato contrato) {
         if (contrato != null) {
-            return contrato.getId_servicio();
+            return contrato.getIdServicio();
         } else {
             return 0; // O manejar la situación de un contrato nulo según sea necesario
         }
