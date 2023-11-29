@@ -18,7 +18,6 @@ public class Contrato {
     @Column(name="id_contrato")
     private int idContrato;
 
-    private int idCliente; // Un único clinte asociado con el contrato
     private int idServicio; // Un único servicio asociado con el contrato
     private Date fechaInicio;
     private Date fechaFin;
