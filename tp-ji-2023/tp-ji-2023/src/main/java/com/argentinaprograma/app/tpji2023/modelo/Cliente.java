@@ -102,7 +102,6 @@ public class Cliente {
     }
 
 	public Cliente orElseThrow(Object object) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

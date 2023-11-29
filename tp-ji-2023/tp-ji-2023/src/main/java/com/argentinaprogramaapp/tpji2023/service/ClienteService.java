@@ -49,7 +49,7 @@ public class ClienteService {
 	}
 
 
-	public Cliente actualizarCliente(int id, Cliente cliente) {
+	/*public Cliente actualizarCliente(int id, Cliente cliente) {
         Cliente clienteExistente = clienteRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Cliente no encontrado con el id: " + id));
 
@@ -59,7 +59,7 @@ public class ClienteService {
         // Guardar el cliente actualizado en la base de datos
         return clienteRepository.guardar(clienteExistente);
     }
-
+*/
 
 	public Object crearCliente(int id) {
 		// TODO Auto-generated method stub
