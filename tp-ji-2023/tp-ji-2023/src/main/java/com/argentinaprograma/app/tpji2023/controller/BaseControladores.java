@@ -1,4 +1,4 @@
-package com.argentinaprograma.app.tpji2023.controlador;
+package com.argentinaprograma.app.tpji2023.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

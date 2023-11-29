@@ -1,4 +1,4 @@
-package com.argentinaprograma.app.tpji2023.orm;
+package com.argentinaprograma.app.tpji2023.repository;
 
 public class DetalleDeServicioDao {
 

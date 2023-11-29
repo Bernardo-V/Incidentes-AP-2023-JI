@@ -13,7 +13,7 @@ import com.argentinaprograma.app.tpji2023.modelo.Contrato;
 
 public class ClienteService {
 	
-    @Autowired
+    /*@Autowired
     private ClienteRepository clienteRepository;
 
     @Autowired
@@ -65,5 +65,5 @@ public class ClienteService {
 		// TODO Auto-generated method stub
 		
 	}
-
+*/
 }

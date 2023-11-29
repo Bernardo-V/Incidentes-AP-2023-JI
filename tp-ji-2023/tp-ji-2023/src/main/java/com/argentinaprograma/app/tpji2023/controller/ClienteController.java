@@ -1,4 +1,4 @@
-package com.argentinaprograma.app.tpji2023.controlador;
+/*package com.argentinaprograma.app.tpji2023.controlador;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
@@ -57,5 +57,8 @@ public class ClienteControlador implements BaseControladores {
 	        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	    }
   }
+*/
+package com.argentinaprograma.app.tpji2023.controller;
+
 
 	
