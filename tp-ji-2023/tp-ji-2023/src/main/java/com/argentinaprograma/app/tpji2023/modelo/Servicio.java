@@ -21,7 +21,7 @@ public class Servicio {
     private String descripcion;
     private List<DetalleServicio> detallesServicio; // Lista de detalles de servicio
 
-    @OneToMany(mappedBy = "idContrato", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "servicio", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Contrato> contratos = new ArrayList<>();
 
     @OneToMany(mappedBy = "id_detalle_servicio", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -39,7 +39,7 @@ public class Servicio {
     // Método para seleccionar un detalle de servicio específico por ID
     public DetalleServicio seleccionarDetalleServicioPorId(int idDetalleServicio) {
         for (DetalleServicio detalle : detallesServicio) {
-            if (detalle.getId_detalle_servicio() == idDetalleServicio) {
+            if (detalle.getIdDetalleServicio() == idDetalleServicio) {
                 return detalle;
             }
         }

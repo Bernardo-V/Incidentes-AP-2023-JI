@@ -1,6 +1,7 @@
 package com.argentinaprograma.app.tpji2023.modelo;
 
 import jakarta.persistence.*;
+import com.argentinaprograma.app.tpji2023.modelo.Servicio;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -17,8 +18,6 @@ public class Contrato {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_contrato")
     private int idContrato;
-
-    private int idServicio; // Un único servicio asociado con el contrato
     private Date fechaInicio;
     private Date fechaFin;
     private String estado;
@@ -37,7 +36,7 @@ public class Contrato {
     // Método que recibe un objeto Contrato y devuelve el Servicio asociado
     public int obtenerServicioDelContrato(Contrato contrato) {
         if (contrato != null) {
-            return contrato.getIdServicio();
+            return servicio.getIdServicio();
         } else {
             return 0; // O manejar la situación de un contrato nulo según sea necesario
         }

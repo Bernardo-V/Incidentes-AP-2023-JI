@@ -22,10 +22,8 @@ public class Incidente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_incidente")
-    private int idIncidente;
-    private int idContrato;
+    private int idIncidente;  
     private int idTipodeProblema;
-    private int idTecnico;
     private Date fechaCreacion;
     private Date fechaInicio;
     private Date fechaFinEstimada;
@@ -56,16 +54,16 @@ public class Incidente {
         this.idIncidente = idIncidente;
     }
 
-    public void setId_contrato(int idContrato) {
-        this.idContrato = idContrato;
+    public void setId_contrato(Contrato contrato) {
+        this.contrato = contrato;
     }
-
+        
     public void setId_tipo_de_problema(int idTipodeProblema) {
         this.idTipodeProblema = idTipodeProblema;
     }
 
-    public void setId_tecnico(int idTecnico) {
-        this.idTecnico = idTecnico;
+    public void setId_tecnico(Tecnico tecnico) {
+        this.tecnico = tecnico;
     }
 
     public void setFecha_creacion(Date fechaCreacion) {
