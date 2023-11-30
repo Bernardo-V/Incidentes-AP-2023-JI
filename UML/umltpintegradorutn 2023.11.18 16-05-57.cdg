@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="umltpintegradorutn">
+  <ClassDiagramComponents>
+    <Class name="Incidente" package="controlador" visibility="public" xPosition="1200.0" yPosition="598.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Cliente" package="modelo" visibility="public" xPosition="71.0" yPosition="20.0">
+      <Fields>
+        <Field name="id_cliente" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="razon_social" type="String" visibility="private"/>
+        <Field name="cuit" type="String" visibility="private"/>
+        <Field name="eMail" type="String" visibility="private"/>
+        <Field name="telefono" type="String" visibility="private"/>
+        <Field name="contratos" type="List&lt;Contrato&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="id_cliente"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="razon_social"/>
+          <Argument type="String" name="cuit"/>
+          <Argument type="String" name="eMail"/>
+          <Argument type="String" name="telefono"/>
+          <Argument type="List&lt;Contrato&gt;" name="contratos"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId_cliente" returnType="int" visibility="public"/>
+        <Method name="setId_cliente" returnType="void" visibility="public">
+          <Argument type="int" name="id_cliente"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getRazon_social" returnType="String" visibility="public"/>
+        <Method name="setRazon_social" returnType="void" visibility="public">
+          <Argument type="String" name="razon_social"/>
+        </Method>
+        <Method name="getCuit" returnType="String" visibility="public"/>
+        <Method name="setCuit" returnType="void" visibility="public">
+          <Argument type="String" name="cuit"/>
+        </Method>
+        <Method name="getEmail" returnType="String" visibility="public"/>
+        <Method name="setEmail" returnType="void" visibility="public">
+          <Argument type="String" name="eMail"/>
+        </Method>
+        <Method name="getTelefono" returnType="String" visibility="public"/>
+        <Method name="setTelefono" returnType="void" visibility="public">
+          <Argument type="String" name="telefono"/>
+        </Method>
+        <Method name="getContratos" returnType="List&lt;Contrato&gt;" visibility="public"/>
+        <Method name="setContratos" returnType="void" visibility="public">
+          <Argument type="List&lt;Contrato&gt;" name="contratos"/>
+        </Method>
+        <Method name="buscarPorCuit" returnType="Cliente" visibility="public" isStatic="true">
+          <Argument type="List&lt;Cliente&gt;" name="clientes"/>
+          <Argument type="String" name="cuit"/>
+        </Method>
+        <Method name="buscarPorRazonSocial" returnType="Cliente" visibility="public" isStatic="true">
+          <Argument type="List&lt;Cliente&gt;" name="clientes"/>
+          <Argument type="String" name="razonSocial"/>
+        </Method>
+        <Method name="obtenerContratosDelCliente" returnType="List&lt;Contrato&gt;" visibility="public">
+          <Argument type="Cliente" name="cliente"/>
+        </Method>
+        <Method name="seleccionarContrato" returnType="Contrato" visibility="public">
+          <Argument type="int" name="idContrato"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Contrato" package="modelo" visibility="public" xPosition="914.0" yPosition="20.0">
+      <Fields>
+        <Field name="id_contrato" type="int" visibility="private"/>
+        <Field name="cliente" type="Cliente" visibility="private"/>
+        <Field name="servicio" type="Servicio" visibility="private"/>
+        <Field name="fecha_inicio" type="Date" visibility="private"/>
+        <Field name="fecha_fin" type="Date" visibility="private"/>
+        <Field name="estado" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="id_contrato"/>
+          <Argument type="Cliente" name="cliente"/>
+          <Argument type="Servicio" name="servicio"/>
+          <Argument type="Date" name="fecha_inicio"/>
+          <Argument type="Date" name="fecha_fin"/>
+          <Argument type="String" name="estado"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId_contrato" returnType="int" visibility="public"/>
+        <Method name="getFecha_inicio" returnType="Date" visibility="public"/>
+        <Method name="getFecha_fin" returnType="Date" visibility="public"/>
+        <Method name="getEstado" returnType="String" visibility="public"/>
+        <Method name="setId_contrato" returnType="void" visibility="public">
+          <Argument type="int" name="id_contrato"/>
+        </Method>
+        <Method name="setFecha_inicio" returnType="void" visibility="public">
+          <Argument type="Date" name="fecha_inicio"/>
+        </Method>
+        <Method name="setFecha_fin" returnType="void" visibility="public">
+          <Argument type="Date" name="fecha_fin"/>
+        </Method>
+        <Method name="setEstado" returnType="void" visibility="public">
+          <Argument type="String" name="estado"/>
+        </Method>
+        <Method name="getServicio" returnType="Servicio" visibility="public"/>
+        <Method name="setServicio" returnType="void" visibility="public">
+          <Argument type="Servicio" name="servicio"/>
+        </Method>
+        <Method name="getCliente" returnType="Cliente" visibility="public"/>
+        <Method name="setCliente" returnType="void" visibility="public">
+          <Argument type="Cliente" name="cliente"/>
+        </Method>
+        <Method name="obtenerServicioDelContrato" returnType="Servicio" visibility="public">
+          <Argument type="Contrato" name="contrato"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Detalle_servicio" package="modelo" visibility="public" xPosition="2641.0" yPosition="144.0">
+      <Fields>
+        <Field name="id_detalle_servicio" type="int" visibility="private"/>
+        <Field name="id_servicio" type="int" visibility="private"/>
+        <Field name="id_tipo_de_problema" type="int" visibility="private"/>
+        <Field name="duracion_estandar" type="Duration" visibility="private"/>
+        <Field name="especialidades" type="List&lt;Especialidad&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="id_detalle_servicio"/>
+          <Argument type="int" name="id_servicio"/>
+          <Argument type="int" name="id_tipo_de_problema"/>
+          <Argument type="Duration" name="duracion_estandar"/>
+          <Argument type="List&lt;Especialidad&gt;" name="especialidades"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setId_detalle_servicio" returnType="void" visibility="public">
+          <Argument type="int" name="id_detalle_servicio"/>
+        </Method>
+        <Method name="setId_servicio" returnType="void" visibility="public">
+          <Argument type="int" name="id_servicio"/>
+        </Method>
+        <Method name="setId_tipo_de_problema" returnType="void" visibility="public">
+          <Argument type="int" name="id_tipo_de_problema"/>
+        </Method>
+        <Method name="getId_detalle_servicio" returnType="int" visibility="public"/>
+        <Method name="getId_servicio" returnType="int" visibility="public"/>
+        <Method name="getId_tipo_de_problema" returnType="int" visibility="public"/>
+        <Method name="getDuracion_estandar" returnType="Duration" visibility="public"/>
+        <Method name="setDuracion_estandar" returnType="void" visibility="public">
+          <Argument type="Duration" name="duracion_estandar"/>
+        </Method>
+        <Method name="getEspecialidades" returnType="List&lt;Especialidad&gt;" visibility="public"/>
+        <Method name="setEspecialidades" returnType="void" visibility="public">
+          <Argument type="List&lt;Especialidad&gt;" name="especialidades"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Especialidad" package="modelo" visibility="public" xPosition="2655.0" yPosition="1564.0">
+      <Fields>
+        <Field name="id_especialidad" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="descripcion" type="String" visibility="private"/>
+        <Field name="detallesServicio" type="List&lt;Detalle_servicio&gt;" visibility="private"/>
+        <Field name="tecnicos" type="List&lt;Tecnico&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="id_especialidad"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="descripcion"/>
+          <Argument type="List&lt;Detalle_servicio&gt;" name="detallesServicio"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId_especialidad" returnType="int" visibility="public"/>
+        <Method name="setId_especialidad" returnType="void" visibility="public">
+          <Argument type="int" name="id_especialidad"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getDescripcion" returnType="String" visibility="public"/>
+        <Method name="setDescripcion" returnType="void" visibility="public">
+          <Argument type="String" name="descripcion"/>
+        </Method>
+        <Method name="getDetallesServicio" returnType="List&lt;Detalle_servicio&gt;" visibility="public"/>
+        <Method name="setDetallesServicio" returnType="void" visibility="public">
+          <Argument type="List&lt;Detalle_servicio&gt;" name="detallesServicio"/>
+        </Method>
+        <Method name="getTecnicos" returnType="List&lt;Tecnico&gt;" visibility="public"/>
+        <Method name="setTecnicos" returnType="void" visibility="public">
+          <Argument type="List&lt;Tecnico&gt;" name="tecnicos"/>
+        </Method>
+        <Method name="agregarTecnico" returnType="void" visibility="public">
+          <Argument type="Tecnico" name="tecnico"/>
+        </Method>
+        <Method name="eliminarTecnico" returnType="void" visibility="public">
+          <Argument type="Tecnico" name="tecnico"/>
+        </Method>
+        <Method name="obtenerTecnicosPorEspecialidades" returnType="List&lt;Tecnico&gt;" visibility="public" isStatic="true">
+          <Argument type="List&lt;Especialidad&gt;" name="especialidadesSeleccionadas"/>
+          <Argument type="List&lt;Tecnico&gt;" name="listaDeTecnicos"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Incidente" package="modelo" visibility="public" xPosition="993.0" yPosition="568.0">
+      <Fields>
+        <Field name="id_incidente" type="int" visibility="private"/>
+        <Field name="id_contrato" type="int" visibility="private"/>
+        <Field name="id_tipo_de_problema" type="int" visibility="private"/>
+        <Field name="id_tecnico" type="int" visibility="private"/>
+        <Field name="fecha_creacion" type="Date" visibility="private"/>
+        <Field name="fecha_inicio" type="Date" visibility="private"/>
+        <Field name="fecha_fin_estimada" type="Date" visibility="private"/>
+        <Field name="duracion_estimada" type="Duration" visibility="private"/>
+        <Field name="estado" type="String" visibility="private"/>
+        <Field name="problemas" type="List&lt;Problema&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="id_incidente"/>
+          <Argument type="int" name="id_contrato"/>
+          <Argument type="int" name="id_tipo_de_problema"/>
+          <Argument type="int" name="id_tecnico"/>
+          <Argument type="Date" name="fecha_creacion"/>
+          <Argument type="Date" name="fecha_inicio"/>
+          <Argument type="Date" name="fecha_fin_estimada"/>
+          <Argument type="Duration" name="duracion_estimada"/>
+          <Argument type="String" name="estado"/>
+          <Argument type="List&lt;Problema&gt;" name="problemas"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId_incidente" returnType="int" visibility="public"/>
+        <Method name="getId_contrato" returnType="int" visibility="public"/>
+        <Method name="getId_tipo_de_problema" returnType="int" visibility="public"/>
+        <Method name="getId_tecnico" returnType="int" visibility="public"/>
+        <Method name="getFecha_creacion" returnType="Date" visibility="public"/>
+        <Method name="getFecha_inicio" returnType="Date" visibility="public"/>
+        <Method name="getFecha_fin_estimada" returnType="Date" visibility="public"/>
+        <Method name="getEstado" returnType="String" visibility="public"/>
+        <Method name="setId_incidente" returnType="void" visibility="public">
+          <Argument type="int" name="id_incidente"/>
+        </Method>
+        <Method name="setId_contrato" returnType="void" visibility="public">
+          <Argument type="int" name="id_contrato"/>
+        </Method>
+        <Method name="setId_tipo_de_problema" returnType="void" visibility="public">
+          <Argument type="int" name="id_tipo_de_problema"/>
+        </Method>
+        <Method name="setId_tecnico" returnType="void" visibility="public">
+          <Argument type="int" name="id_tecnico"/>
+        </Method>
+        <Method name="setFecha_creacion" returnType="void" visibility="public">
+          <Argument type="Date" name="fecha_creacion"/>
+        </Method>
+        <Method name="setFecha_inicio" returnType="void" visibility="public">
+          <Argument type="Date" name="fecha_inicio"/>
+        </Method>
+        <Method name="setFecha_fin_estimada" returnType="void" visibility="public">
+          <Argument type="Date" name="fecha_fin_estimada"/>
+        </Method>
+        <Method name="setEstado" returnType="void" visibility="public">
+          <Argument type="String" name="estado"/>
+        </Method>
+        <Method name="getDuracion_estimada" returnType="Duration" visibility="public"/>
+        <Method name="setDuracion_estimada" returnType="void" visibility="public">
+          <Argument type="Duration" name="duracion_estimada"/>
+        </Method>
+        <Method name="getProblemas" returnType="List&lt;Problema&gt;" visibility="public"/>
+        <Method name="setProblemas" returnType="void" visibility="public">
+          <Argument type="List&lt;Problema&gt;" name="problemas"/>
+        </Method>
+        <Method name="determinarFechaInicio" returnType="void" visibility="public">
+          <Argument type="int" name="idTecnico"/>
+          <Argument type="List&lt;Incidente&gt;" name="incidentesAsignadosAlTecnico"/>
+        </Method>
+        <Method name="obtenerUltimoIncidenteDelTecnico" returnType="Incidente" visibility="private">
+          <Argument type="List&lt;Incidente&gt;" name="incidentesAsignadosAlTecnico"/>
+        </Method>
+        <Method name="calcularDuracionEstimada" returnType="Duration" visibility="public"/>
+        <Method name="calcularEstado" returnType="String" visibility="public"/>
+        <Method name="obtenerFechaCierre" returnType="Date" visibility="public"/>
+        <Method name="obtenerFechaFinEstimada" returnType="Date" visibility="public"/>
+        <Method name="notificarClienteFechaPosibleSolucion" returnType="void" visibility="public">
+          <Argument type="Incidente" name="incidente"/>
+        </Method>
+        <Method name="obtenerFechaPosibleResolucion" returnType="Date" visibility="private">
+          <Argument type="Incidente" name="incidente"/>
+        </Method>
+        <Method name="notificarTecnico" returnType="void" visibility="public">
+          <Argument type="Incidente" name="incidente"/>
+        </Method>
+        <Method name="notificarClienteEstadoResulto" returnType="void" visibility="public">
+          <Argument type="Incidente" name="incidente"/>
+        </Method>
+        <Method name="obtenerIncidentesPorFechaEnLista" returnType="List&lt;Incidente&gt;" visibility="public" isStatic="true">
+          <Argument type="Date" name="fecha"/>
+          <Argument type="List&lt;Incidente&gt;" name="listaIncidentes"/>
+        </Method>
+        <Method name="obtenerTecnicoMasIncidentesResueltos" returnType="Tecnico" visibility="public">
+          <Argument type="int" name="dias"/>
+          <Argument type="List&lt;Incidente&gt;" name="listaIncidentes"/>
+        </Method>
+        <Method name="obtenerTecnicoMasIncidentesResueltosEspecialidad" returnType="Tecnico" visibility="public">
+          <Argument type="int" name="dias"/>
+          <Argument type="int" name="idEspecialidad"/>
+          <Argument type="List&lt;Incidente&gt;" name="listaIncidentes"/>
+        </Method>
+        <Method name="obtenerTecnicoMasRapido" returnType="Tecnico" visibility="public">
+          <Argument type="List&lt;Incidente&gt;" name="incidentes"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Problema" package="modelo" visibility="public" xPosition="21.0" yPosition="675.0">
+      <Fields>
+        <Field name="id_problema" type="int" visibility="private"/>
+        <Field name="id_incidente" type="int" visibility="private"/>
+        <Field name="descripcion" type="String" visibility="private"/>
+        <Field name="duracion_problema" type="Duration" visibility="private"/>
+        <Field name="fecha_cierre" type="Date" visibility="private"/>
+        <Field name="estado" type="String" visibility="private"/>
+        <Field name="complejo" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="id_problema"/>
+          <Argument type="int" name="id_incidente"/>
+          <Argument type="String" name="descripcion"/>
+          <Argument type="Duration" name="duracion_problema"/>
+          <Argument type="Date" name="fecha_cierre"/>
+          <Argument type="String" name="estado"/>
+          <Argument type="boolean" name="complejo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId_problema" returnType="int" visibility="public"/>
+        <Method name="setId_problema" returnType="void" visibility="public">
+          <Argument type="int" name="id_problema"/>
+        </Method>
+        <Method name="getId_incidente" returnType="int" visibility="public"/>
+        <Method name="setId_incidente" returnType="void" visibility="public">
+          <Argument type="int" name="id_incidente"/>
+        </Method>
+        <Method name="getDescripcion" returnType="String" visibility="public"/>
+        <Method name="setDescripcion" returnType="void" visibility="public">
+          <Argument type="String" name="descripcion"/>
+        </Method>
+        <Method name="getDuracion_problema" returnType="Duration" visibility="public"/>
+        <Method name="setDuracion_problema" returnType="void" visibility="public">
+          <Argument type="Duration" name="duracion_problema"/>
+        </Method>
+        <Method name="getFecha_cierre" returnType="Date" visibility="public"/>
+        <Method name="setFecha_cierre" returnType="void" visibility="public">
+          <Argument type="Date" name="fecha_cierre"/>
+        </Method>
+        <Method name="getEstado" returnType="String" visibility="public"/>
+        <Method name="setEstado" returnType="void" visibility="public">
+          <Argument type="String" name="estado"/>
+        </Method>
+        <Method name="isComplejo" returnType="boolean" visibility="public"/>
+        <Method name="setComplejo" returnType="void" visibility="public">
+          <Argument type="boolean" name="complejo"/>
+        </Method>
+        <Method name="CalculaColchonDuracionEstimada" returnType="Duration" visibility="public">
+          <Argument type="Duration" name="colchon"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Servicio" package="modelo" visibility="public" xPosition="1634.0" yPosition="68.0">
+      <Fields>
+        <Field name="id_servicio" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="descripcion" type="String" visibility="private"/>
+        <Field name="detallesServicio" type="List&lt;Detalle_servicio&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="id_servicio"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="descripcion"/>
+          <Argument type="List&lt;Detalle_servicio&gt;" name="detallesServicio"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId_servicio" returnType="int" visibility="public"/>
+        <Method name="setId_servicio" returnType="void" visibility="public">
+          <Argument type="int" name="id_servicio"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getDescripcion" returnType="String" visibility="public"/>
+        <Method name="setDescripcion" returnType="void" visibility="public">
+          <Argument type="String" name="descripcion"/>
+        </Method>
+        <Method name="getDetallesServicio" returnType="List&lt;Detalle_servicio&gt;" visibility="public"/>
+        <Method name="setDetallesServicio" returnType="void" visibility="public">
+          <Argument type="List&lt;Detalle_servicio&gt;" name="detallesServicio"/>
+        </Method>
+        <Method name="obtenerDetallesServicio" returnType="List&lt;Detalle_servicio&gt;" visibility="public">
+          <Argument type="Servicio" name="servicio"/>
+        </Method>
+        <Method name="seleccionarDetalleServicioPorId" returnType="Detalle_servicio" visibility="public">
+          <Argument type="int" name="idDetalleServicio"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Tecnico" package="modelo" visibility="public" xPosition="21.0" yPosition="1564.0">
+      <Fields>
+        <Field name="id_tecnico" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="eMail" type="String" visibility="private"/>
+        <Field name="telefono" type="String" visibility="private"/>
+        <Field name="medioNotificacion" type="MedioNotificacion" visibility="private"/>
+        <Field name="especialidades" type="List&lt;Especialidad&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="id_tecnico"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="eMail"/>
+          <Argument type="String" name="telefono"/>
+          <Argument type="MedioNotificacion" name="medioNotificacion"/>
+          <Argument type="List&lt;Especialidad&gt;" name="especialidades"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId_tecnico" returnType="int" visibility="public"/>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="geteMail" returnType="String" visibility="public"/>
+        <Method name="getTelefono" returnType="String" visibility="public"/>
+        <Method name="getMedioNotificacion" returnType="MedioNotificacion" visibility="public"/>
+        <Method name="setId_tecnico" returnType="void" visibility="public">
+          <Argument type="int" name="id_tecnico"/>
+        </Method>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="seteMail" returnType="void" visibility="public">
+          <Argument type="String" name="eMail"/>
+        </Method>
+        <Method name="setTelefono" returnType="void" visibility="public">
+          <Argument type="String" name="telefono"/>
+        </Method>
+        <Method name="setMedioNotificacion" returnType="void" visibility="public">
+          <Argument type="MedioNotificacion" name="medioNotificacion"/>
+        </Method>
+        <Method name="getEspecialidades" returnType="List&lt;Especialidad&gt;" visibility="public"/>
+        <Method name="setEspecialidades" returnType="void" visibility="public">
+          <Argument type="List&lt;Especialidad&gt;" name="especialidades"/>
+        </Method>
+        <Method name="definirMedioNotificacion" returnType="MedioNotificacion" visibility="public">
+          <Argument type="MedioNotificacion" name="medio"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Tipo_de_problema" package="modelo" visibility="public" xPosition="2269.0" yPosition="660.0">
+      <Fields>
+        <Field name="id_tipo_de_problema" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="descripcion" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="id_tipo_de_problema"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="descripcion"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId_tipo_de_problema" returnType="int" visibility="public"/>
+        <Method name="setId_tipo_de_problema" returnType="void" visibility="public">
+          <Argument type="int" name="id_tipo_de_problema"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getDescripcion" returnType="String" visibility="public"/>
+        <Method name="setDescripcion" returnType="void" visibility="public">
+          <Argument type="String" name="descripcion"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Enum name="MedioNotificacion" package="modelo" visibility="public" xPosition="594.0" yPosition="1263.0">
+      <Literals>
+        <Literal name="EMAIL"/>
+        <Literal name="WHATSAPP"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="modelo.Incidente" target="modelo.Problema" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="especialidades" source="modelo.Detalle_servicio" target="modelo.Especialidad" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Especialidad&gt;"/>
+    <HasRelation name="especialidades" source="modelo.Tecnico" target="modelo.Especialidad" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Especialidad&gt;"/>
+    <HasRelation name="problemas" source="modelo.Incidente" target="modelo.Problema" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Problema&gt;"/>
+    <UseRelation source="modelo.Cliente" target="modelo.Cliente" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="modelo.Servicio" target="modelo.Servicio" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="modelo.Cliente" target="modelo.Contrato" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="modelo.Especialidad" target="modelo.Detalle_servicio" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="modelo.Contrato" target="modelo.Servicio" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="modelo.Especialidad" target="modelo.Tecnico" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="modelo.Tecnico" target="modelo.MedioNotificacion" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="medioNotificacion" source="modelo.Tecnico" target="modelo.MedioNotificacion" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="modelo.Contrato" target="modelo.Cliente" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="contratos" source="modelo.Cliente" target="modelo.Contrato" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Contrato&gt;"/>
+    <HasRelation name="tecnicos" source="modelo.Especialidad" target="modelo.Tecnico" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Tecnico&gt;"/>
+    <UseRelation source="modelo.Tecnico" target="modelo.Especialidad" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="modelo.Detalle_servicio" target="modelo.Especialidad" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="detallesServicio" source="modelo.Servicio" target="modelo.Detalle_servicio" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Detalle_servicio&gt;"/>
+    <HasRelation name="detallesServicio" source="modelo.Especialidad" target="modelo.Detalle_servicio" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Detalle_servicio&gt;"/>
+    <HasRelation name="cliente" source="modelo.Contrato" target="modelo.Cliente" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="modelo.Incidente" target="modelo.Incidente" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="servicio" source="modelo.Contrato" target="modelo.Servicio" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="modelo.Servicio" target="modelo.Detalle_servicio" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="modelo.Incidente" target="modelo.Tecnico" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
