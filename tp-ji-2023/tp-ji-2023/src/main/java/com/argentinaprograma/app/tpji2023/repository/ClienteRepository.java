@@ -38,4 +38,9 @@ public class ClienteRepository {
         return entityManager.merge(clienteExistente);
     }
 
+    // Método para eliminar un cliente
+    public void eliminarCliente(int id) {
+        clienteRepository.deleteById(id);
+    }
+
 }

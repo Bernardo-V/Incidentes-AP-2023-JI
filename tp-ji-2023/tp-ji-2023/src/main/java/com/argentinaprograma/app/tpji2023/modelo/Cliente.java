@@ -37,9 +37,6 @@ public class Cliente {
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Contrato> contratos = new ArrayList<>();
     //un cliente puede tener múltiples contratos y cada contrato pertenece a un único cliente
-// modificado: @OneToMany(mappedBy = "id_contrato", cascade = CascadeType.ALL, orphanRemoval = true)
- //private List<Contrato> contratosl = new ArrayList<>();
-    //indica que la relación está mapeada por el campo "id_contrato" en la clase Contrato
     
 
     // Método para buscar un cliente por CUIT
@@ -61,14 +58,15 @@ public class Cliente {
         }
         return null; // o puedes lanzar una excepción si prefieres
     }
+    
 
     // Este método ahora toma un objeto Cliente como parámetro y devuelve su lista de contratos.
     public List<Contrato> obtenerContratosDelCliente(Cliente cliente) {
         return cliente.getContratos();
     }
 
+    
     // Método para devolver un contrato específico
-
     public Contrato seleccionarContrato(int idContrato) {
         for (Contrato contrato : this.contratos) {
             if (contrato.getIdContrato() == idContrato) {
@@ -79,6 +77,7 @@ public class Cliente {
         return null; // o puedes lanzar una excepción si no se encuentra el contrato
     }
 
+    
  // Clase de excepción específica para cuando no se encuentra un cliente
     public static class ClienteNoEncontradoException extends Exception {
         public ClienteNoEncontradoException(String mensaje) {
@@ -86,21 +85,25 @@ public class Cliente {
         }
     }
     
+    
     public void setContratos(List<Contrato> contratos) {
         this.contratos = contratos;
     }
 
+    
     // Métodos para agregar y eliminar contratos
     public void agregarContrato(Contrato contrato) {
         contratos.add(contrato);
         contrato.setCliente(this);
     }
 
+    
     public void eliminarContrato(Contrato contrato) {
         contratos.remove(contrato);
         contrato.setCliente(null);
     }
 
+    
 	public Cliente orElseThrow(Object object) {
 		return null;
 	}

@@ -49,17 +49,6 @@ public class ClienteService {
 	}
 
 
-	/*public Cliente actualizarCliente(int id, Cliente cliente) {
-        Cliente clienteExistente = clienteRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Cliente no encontrado con el id: " + id));
-
-        // Actualizar el clienteExistente con los valores proporcionados en cliente
-        BeanUtils.copyProperties(cliente, clienteExistente, "id");
-
-        // Guardar el cliente actualizado en la base de datos
-        return clienteRepository.guardar(clienteExistente);
-    }
-*/
 
 	public Object crearCliente(int id) {
 		// TODO Auto-generated method stub
@@ -71,10 +60,10 @@ public class ClienteService {
 		return null;
 	}
 
-	public void eliminarCliente(int id) {
-		// TODO Auto-generated method stub
-		
-	}
+    // Método para eliminar un cliente
+    public void eliminarCliente(int id) {
+        clienteRepository.deleteById(id);
+    }
 
 	public List<Cliente> obtenerTodosLosClientes() {
 		// TODO Auto-generated method stub
